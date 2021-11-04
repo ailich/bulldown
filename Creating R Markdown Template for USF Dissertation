@@ -1,0 +1,50 @@
+https://chester.rbind.io/ecots2k16/template_pkg/ for info on RMarkdown Templates
+
+Create empty repository on github and make it a project
+devtools::create("../bulldown") #Create pacakge directory
+usethis::use_rmarkdown_template(template_name = "USFDissertation") #Make template file structure
+
+Download USF latex cls and template.tex files from http://shell.cas.usf.edu/~saito/grad/
+Rename USFDissertationTemplate.tex as template.tex
+Put latex document class file (*.cls file) template.tex file in skeleton folder as is done in thesisdown
+
+Add thesis.R function to R folder from thesisdown
+Change skeleton.Rmd output to be bulldown::theis_pdf
+
+Edit template.tex. Link to YAML fields by surrounding information with $.
+\title{$title$}
+\author{$author$}
+\degree{$degree$}
+\department{$department$}
+\college{$college$}
+\university{}
+\majorprofessor{$majorprofessor$}{Ph.D.}
+\committeemember{$committee1$}{Ph.D.}
+\committeemember{$committee2$}{Ph.D.}
+\committeemember{$committee3$}{Ph.D}
+\committeemember{$committee4$}{Ph.D}
+\keywords{$keyword1$}{$keyword2$}{$keyword3$}{$keyword4$}{$keyword5$}
+\approvaldate{$approvaldate$}
+\copyrightdate{$copyrightdate$}
+
+Then add those YAML fields to skeleton.Rmd
+
+Remove a lot of text from template.tex
+  - replace text in dedication section with $dedication$
+  - replace text in acknowledgment section with $acknowledgment$
+  - replace text in abstract section with $abstract$
+  - replace all text between \dissertation and \end{document} with $body$
+
+Create _bookdown.yml in skeleton with the text:
+book_filename: "thesis"
+chapter_name: "Chapter "
+download: [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]]
+delete_merged_file: true
+
+Add bookdown info to skeleton.Rmd
+knit: bookdown::render_book
+site: bookdown::bookdown_site
+
+Run this code to update and install package
+devtools::document()
+devtools::install()

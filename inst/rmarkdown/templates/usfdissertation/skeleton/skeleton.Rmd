@@ -1,0 +1,36 @@
+---
+# USF thesis fields
+title: "My Dissertation Title"
+author: "My Name"
+degree: "Doctorate of Philosopy"
+department: "Marine Resource Assessment"
+college: "College of Marine Science"
+majorprofessor: "your advisor"
+committee1: "committee member 1"
+committee2: "committee member 2"
+committee3: "committee member 3"
+committee4: "committee member 4"
+keyword1: "keyword1"
+keyword2: "keyword2"
+keyword3: "keyword3"
+keyword4: "keyword4"
+keyword5: "keyword5"
+approvaldate: "August 5, 2023"
+copyrightdate: "2023"
+abstract: |
+  "Here is my abstract"
+acknowledgment: |
+  "My acknowledgments"
+dedication: |
+  "My dedication"
+# End of USF thesis fields
+knit: bookdown::render_book
+site: bookdown::bookdown_site
+output: 
+  bulldown::thesis_pdf: default
+bibliography: bib/thesis.bib
+# Download your specific bibliography database file and refer to it in the line above.
+csl: csl/apa.csl
+lot: true
+lof: true
+---
