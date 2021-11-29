@@ -31,3 +31,8 @@ csl: csl/apa.csl
 lot: true
 lof: true
 ---
+
+```{r setup, include=FALSE, warning = FALSE, message = FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE, include=TRUE, warning = FALSE, message = FALSE)
+```
